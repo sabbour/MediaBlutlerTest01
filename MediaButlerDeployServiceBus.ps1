@@ -29,9 +29,9 @@ $serviceLocation="[your Cloud Service and Media Services Region]"
 #Media Butler Cloud Services Slot
 $slot="Production"
 #Media Butler Package URL
-$package_url="http://sabbourstorage.blob.core.windows.net/mediabutler/MediaButler.AllinOne.cspkg"
+$package_url="https://github.com/sabbour/MediaBlutlerTest01/blob/master/MediaButler.AllinOne/bin/Release/app.publish/MediaButler.AllinOne.cspkg?raw=true"
 #Media Butler Config URL
-$config_Url="http://aka.ms/MediaButlerCscfg"
+$config_Url="https://github.com/sabbour/MediaBlutlerTest01/blob/master/MediaButler.AllinOne/bin/Release/app.publish/ServiceConfiguration.Cloud.cscfg?raw=true"
 
 
 Function InsertButlerConfig($accountName,$accountKey,$tableName, $PartitionKey,$RowKey,$value   )
@@ -79,9 +79,9 @@ Function GetConfig($_configSource, $_MediaButlerStorageConn) {
 
      [xml]$configXml =Get-Content $configFile
      $configXml.ServiceConfiguration.Role[0].ConfigurationSettings.Setting[0].value=$_MediaButlerStorageConn
-     $configXml.ServiceConfiguration.Role[0].ConfigurationSettings.Setting[1].value=$_MediaButlerStorageConn
+     # $configXml.ServiceConfiguration.Role[0].ConfigurationSettings.Setting[1].value=$_MediaButlerStorageConn # changed with SDK 2.5
      $configXml.ServiceConfiguration.Role[1].ConfigurationSettings.Setting[0].value=$_MediaButlerStorageConn
-     $configXml.ServiceConfiguration.Role[1].ConfigurationSettings.Setting[1].value=$_MediaButlerStorageConn
+     # $configXml.ServiceConfiguration.Role[1].ConfigurationSettings.Setting[1].value=$_MediaButlerStorageConn # changed with SDK 2.5
   
      $configXml.Save($configFile)
 
