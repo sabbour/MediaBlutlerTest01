@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaButler.Common", "MediaButler.Common\MediaButler.Common.csproj", "{569BF3BD-00FC-4D58-831E-50FAD2C22CDA}"
 EndProject
@@ -11,17 +11,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaButler.Workflow", "Med
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaButler.BaseProcess", "MediaButler.BaseProcess\MediaButler.BaseProcess.csproj", "{3D7A2C36-62C3-4303-99A5-8ED7454708FA}"
 EndProject
-Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "MediaButler.AllinOne", "MediaButler.AllinOne\MediaButler.AllinOne.ccproj", "{48BD2B05-17B2-41A5-9A0E-89243F9AAEC2}"
+Project("{2B9991BB-E522-30BD-AEAA-44A7C0A198E8}") = "MediaButler.AllinOne", "MediaButler.AllinOne\MediaButler.AllinOne.ccproj", "{48BD2B05-17B2-41A5-9A0E-89243F9AAEC2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MediaButlerInstall", "MediaButlerInstall", "{34A57BB8-43ED-4FD9-8BFB-F8A9D2ABEBED}"
 	ProjectSection(SolutionItems) = preProject
 		MediaButlerDeploy.ps1 = MediaButlerDeploy.ps1
+		MediaButlerDeployServiceBus.ps1 = MediaButlerDeployServiceBus.ps1
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4AE42AE7-1528-4BB3-AAE2-A7558407B58E}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE.md = LICENSE.md
 		README.md = README.md
+		README_SERVICEBUS.md = README_SERVICEBUS.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{167EDADD-EC42-4C93-B2C5-DD4B3841A400}"
@@ -29,6 +31,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{167EDA
 		.nuget\NuGet.Config = .nuget\NuGet.Config
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app.publish", "app.publish", "{D0E22E4C-26DD-4CC5-B29D-02D45CCC87C9}"
+	ProjectSection(SolutionItems) = preProject
+		MediaButler.AllinOne\bin\Release\app.publish\MediaButler.AllinOne.cspkg = MediaButler.AllinOne\bin\Release\app.publish\MediaButler.AllinOne.cspkg
+		MediaButler.AllinOne\bin\Release\app.publish\ServiceConfiguration.Cloud.cscfg = MediaButler.AllinOne\bin\Release\app.publish\ServiceConfiguration.Cloud.cscfg
 	EndProjectSection
 EndProject
 Global

@@ -3,14 +3,12 @@
   <Role name="MediaButler.Workflow">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="[you Butler Storage Connection String]" />
       <Setting name="MediaButler.ConfigurationStorageConnectionString" value="[you Butler Storage Connection String]" />
     </ConfigurationSettings>
   </Role>
   <Role name="MediaButler.Watcher">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="[you Butler Storage Connection String]" />
       <Setting name="MediaButler.ConfigurationStorageConnectionString" value="[you Butler Storage Connection String]" />
     </ConfigurationSettings>
   </Role>
