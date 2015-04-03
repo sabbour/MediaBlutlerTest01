@@ -29,9 +29,9 @@ $serviceLocation="[your Cloud Service and Media Services Region]"
 #Media Butler Cloud Services Slot
 $slot="Production"
 #Media Butler Package URL
-$package_url="https://github.com/sabbour/MediaBlutlerTest01/blob/master/MediaButler.AllinOne/bin/Release/app.publish/MediaButler.AllinOne.cspkg?raw=true"
+$package_url="http://sabbourbutlermedia.blob.core.windows.net/app/MediaButler.AllinOne.cspkg"
 #Media Butler Config URL
-$config_Url="https://github.com/sabbour/MediaBlutlerTest01/blob/master/MediaButler.AllinOne/bin/Release/app.publish/ServiceConfiguration.Cloud.cscfg?raw=true"
+$config_Url="https://raw.githubusercontent.com/sabbour/MediaBlutlerTest01/master/MediaButler.AllinOne/bin/Release/app.publish/ServiceConfiguration.Cloud.cscfg"
 
 
 Function InsertButlerConfig($accountName,$accountKey,$tableName, $PartitionKey,$RowKey,$value   )
@@ -78,10 +78,16 @@ Function GetConfig($_configSource, $_MediaButlerStorageConn) {
     Invoke-WebRequest $_configSource -OutFile $configFile 
 
      [xml]$configXml =Get-Content $configFile
-     $configXml.ServiceConfiguration.Role[0].ConfigurationSettings.Setting[0].value=$_MediaButlerStorageConn
-     # $configXml.ServiceConfiguration.Role[0].ConfigurationSettings.Setting[1].value=$_MediaButlerStorageConn # changed with SDK 2.5
-     $configXml.ServiceConfiguration.Role[1].ConfigurationSettings.Setting[0].value=$_MediaButlerStorageConn
-     # $configXml.ServiceConfiguration.Role[1].ConfigurationSettings.Setting[1].value=$_MediaButlerStorageConn # changed with SDK 2.5
+
+	 # We only have 1 setting
+	  $configXml.ServiceConfiguration.Role[0].ConfigurationSettings.Setting.value=$_MediaButlerStorageConn
+	  $configXml.ServiceConfiguration.Role[1].ConfigurationSettings.Setting.value=$_MediaButlerStorageConn
+
+	 # changed with SDK 2.5
+     #$configXml.ServiceConfiguration.Role[0].ConfigurationSettings.Setting[0].value=$_MediaButlerStorageConn
+     #$configXml.ServiceConfiguration.Role[0].ConfigurationSettings.Setting[1].value=$_MediaButlerStorageConn 
+     #$configXml.ServiceConfiguration.Role[1].ConfigurationSettings.Setting[0].value=$_MediaButlerStorageConn
+     #$configXml.ServiceConfiguration.Role[1].ConfigurationSettings.Setting[1].value=$_MediaButlerStorageConn
   
      $configXml.Save($configFile)
 
